@@ -1,0 +1,99 @@
+div {
+ max-width: 1000px;	
+ margin-left: 13%;
+ margin-right: 5%;
+ 
+}
+
+.foto-group {
+ width: 900px;
+}
+
+.about-singer {
+ width: 900px;
+}
+
+footer {
+ margin-top: 50px;
+ max-height: 320px;
+ left: 0; bottom: 0; /* Левый нижний угол */
+ padding: 50px; /* Поля вокруг текста */
+ background: grey; /* Цвет фона */
+ color: #fff; /* Цвет текста */
+}
+
+nav.menu{
+ margin-top: 20px;
+ margin-left: 250px;
+ float: none;
+}
+
+.about-singer-text {
+ margin-left: 5%;
+}
+
+img.logo{
+ text-align: left;
+ float: left;
+}
+
+ul {
+ display: block;
+ margin: 0;
+ padding: 0;
+ list-style: none;
+}
+ul:after {
+ display: block;
+ content: ' ';
+ clear: both;
+ float: none;
+}
+ul.menu > li {
+ float: left;
+ position: relative;
+}
+ul.menu > li > a {
+ display: block;
+ padding: 10px;
+ color: black;
+ background-color: white;
+ text-decoration: none;
+}
+
+ul.submenu {
+ display: none;
+ position: absolute;
+ width: 100px;
+ top: 37px;
+ background-color: black;
+ border: 1px double black;
+}
+
+ul.submenu > li {
+ display: block;
+}
+
+ul.submenu > li > a {
+ display: block;
+ padding: 10px;
+ color: black;
+ background-color: white;   
+}
+
+ul.menu > li > a:hover {
+ background-color: grey;
+}
+
+ul.submenu > li > a:hover {
+ background-color: grey;
+}
+
+ul.submenu > li > a:hover {
+ text-decoration: underline;
+}
+
+ul.menu > li:hover > ul.submenu {
+ display: block;
+}
+
