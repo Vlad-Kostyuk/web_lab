@@ -1,8 +1,11 @@
-div {
- max-width: 1000px;	
- margin-left: 13%;
- margin-right: 5%;
- 
+body{
+
+}
+
+.page-content {
+  max-width: 1000px;	
+  margin-left: 13%;
+  margin-right: 5%;
 }
 
 .foto-group {
@@ -13,13 +16,24 @@ div {
  width: 900px;
 }
 
+.head-div {
+ position: fixed;
+ background: white;
+ width: 1000px; 
+ height: 80px;
+ top: 0;
+ opacity: 0.95;
+}
+
 footer {
+ width: 100%;	
  margin-top: 50px;
  max-height: 320px;
- left: 0; bottom: 0; /* Левый нижний угол */
- padding: 50px; /* Поля вокруг текста */
- background: grey; /* Цвет фона */
- color: #fff; /* Цвет текста */
+ left: 0; bottom: 0; 
+ padding-top: 50px; 
+ padding-bottom: 50px; 
+ background: grey; 
+ color: #fff; 
 }
 
 nav.menu{
@@ -35,6 +49,12 @@ nav.menu{
 img.logo{
  text-align: left;
  float: left;
+ margin-top: 28px;
+ margin-left: 50px;
+}
+
+.main-foto {
+ padding-top: 80px;
 }
 
 ul {
@@ -43,16 +63,19 @@ ul {
  padding: 0;
  list-style: none;
 }
+
 ul:after {
  display: block;
  content: ' ';
  clear: both;
  float: none;
 }
+
 ul.menu > li {
  float: left;
  position: relative;
 }
+
 ul.menu > li > a {
  display: block;
  padding: 10px;
@@ -64,8 +87,8 @@ ul.menu > li > a {
 ul.submenu {
  display: none;
  position: absolute;
- width: 100px;
- top: 37px;
+ width: 200px;
+ top: 38px;
  background-color: black;
  border: 1px double black;
 }
@@ -76,21 +99,20 @@ ul.submenu > li {
 
 ul.submenu > li > a {
  display: block;
- padding: 10px;
+ padding: 20px;
  color: black;
- background-color: white;   
+ background-color: white;  
+ text-decoration: none; 
+ padding-left: 10px;
 }
 
 ul.menu > li > a:hover {
- background-color: grey;
+ color: grey;
 }
 
 ul.submenu > li > a:hover {
- background-color: grey;
-}
-
-ul.submenu > li > a:hover {
- text-decoration: underline;
+ color: grey;
+ padding-left: 30px;
 }
 
 ul.menu > li:hover > ul.submenu {

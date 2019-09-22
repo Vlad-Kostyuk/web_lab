@@ -1,0 +1,52 @@
+.data-fans-appeal {
+ width: 120px;
+ float: left;
+ margin-right: 30px;
+ background-color: grey;
+ border-radius: 10px; 
+}
+
+.text-fans-appeal {
+ width: calc(100% - 150px);
+ float: right;
+ background-color: grey;
+ border-radius: 10px; 
+}
+
+.fans-appeal{
+ margin-top: 100px;
+}
+
+.fans-appeal {
+ padding: 60px;
+}
+
+.input-submit {
+ float: right;
+ margin-right: 30px;
+ padding-top:135px;
+}
+
+button {
+ box-shadow: 4px 4px 2px 1px rgba(0, 0, 87, .2);
+ border-radius: 25px;
+ width: 100px;
+ height: 35px;
+}
+
+ button:hover {
+ box-shadow: none;
+ color: gray;
+}
+
+.form-commit {
+ float: right;	  
+}
+
+.fans-appeal-commit{
+ padding-bottom:20px;
+ padding-top: 30px;
+ width: 1000px;
+ height: 160px;
+ display: inline-table;
+}
