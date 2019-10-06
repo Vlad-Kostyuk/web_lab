@@ -1,0 +1,55 @@
+@media screen and (min-width: 768px) {
+	
+ .fans-middle-col {
+  margin: 25px;
+ }
+
+ .input-submit {
+   padding-top: 50px;
+ }
+}
+
+.data-fans-appeal {
+ background-color: grey;
+ border-radius: 10px; 
+}
+
+.fans-appeal{
+ margin-top: 100px;
+}
+
+.data-fans-appeal {
+ background-color: grey;
+ border-radius: 10px; 
+}
+
+.text-fans-appeal {
+ background-color: grey;
+ border-radius: 10px; 
+ margin-right: 5px;
+}
+
+.input-submit {
+ padding-top:135px;
+}
+
+.fans-appeal-commit{
+ padding-bottom:20px;
+ padding-top: 30px;
+ padding-left: auto;
+}
+
+button.input-submit {
+ box-shadow: 4px 4px 2px 1px rgba(0, 0, 87, 0.2);
+ border-radius: 25px;
+ width: 100px;
+}
+
+ button.input-submit:hover {
+ box-shadow: none;
+ color: gray;
+}
+
+footer {
+	margin-top: 40px;
+}

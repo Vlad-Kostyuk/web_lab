@@ -1,0 +1,29 @@
+.add-image {
+ margin-top: 120px;
+}
+
+.foto-admin{
+ width: 400px;
+ margin-bottom: 20px;
+}
+
+.form{
+ padding-left:390px;
+}
+
+.admin-button-add-foto {
+ float: right;
+ margin-right: 50px;
+ border-radius: 20px;
+}
+
+.admin-button-add-text {
+ float: right;
+ margin-right: 50px;
+ border-radius: 20px;
+}
+
+.admin-form {
+ margin-bottom: 100px;
+ margin-top: 50px;
+}

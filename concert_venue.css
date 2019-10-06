@@ -1,0 +1,21 @@
+.text_top {
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+
+.concert_foto {
+  margin-bottom: 50px;
+}
+
+.button_buy{
+ margin-top: 90px;
+ margin-bottom: 90px;
+ border-radius: 20px;
+ width: 50%;
+ height: 35px;
+ box-shadow: 4px 4px 2px 1px rgba(0, 0, 87, 0.2);
+}
+
+button:hover {
+  color: gray;
+}

@@ -37,10 +37,26 @@ footer {
   }
 }
 
-.page-content {
-  max-width: 1000px;	
-  margin-left: 13%;
-  margin-right: 5%;
+@media screen and (min-width: 1170px) {
+	.page-content {
+	 max-width: 1000px;	
+	 margin-left: 13%;
+	 margin-right: 5%;
+	}
+}
+
+@media screen and (max-width: 1169px) {
+	.page-content {
+	  margin-left: 3%;
+	  margin-right: 3%;
+	}
+}
+@media screen and (max-width: 767px) {
+	.page-content {
+	  max-width: 450px;	
+	  margin-left: 3%;
+	  margin-right: 3%;
+	}
 }
 
 .about-group{
@@ -53,6 +69,3 @@ footer {
   opacity: 0.95;
 }
 
-.menu {
-	z-index: ;
-}
