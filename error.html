@@ -4,7 +4,8 @@
   <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="/style_adap.css" type="text/css"/>
+   <link rel="stylesheet" href="style_adap.css" type="text/css"/>
+    <link rel="stylesheet" href="error.css" type="text/css"/>
     <link rel="stylesheet" href="css/bootstrap.min.css">
   </head>
   <body>
@@ -20,7 +21,7 @@
 
   <div class="collapse navbar-collapse " id="navbarSupportedContent">
    <ul class="navbar-nav ">
-    <li class="nav-item active">
+    <li class="nav-item">
      <a class="nav-link" href="index.html">Головна</a>
     </li>
     <li class="nav-item">
@@ -40,7 +41,7 @@
 	 <li class="nav-item">
       <a class="nav-link" href="concert_venue.html">Місце проведення концертів</a>
      </li>
-	 <li class="nav-item">
+	 <li class="nav-item active">
       <a class="nav-link" href="admin.html">Адмін</a>
      </li>
     </ul>
@@ -48,42 +49,33 @@
   </nav>
 	
 	<div class="page-content ">
-   <div class="main-foto">
+   <div class="content">
     <center>
-     <img class="foto-group" src="foto_group.png" alt="Сайт гурту Океан Ельзи">
+	 <div class="error-foto">
+	  <img  src="404.png" alt="Упс...помилка">
+	 </div>
+     <div class="error-text">
+	  <p>
+	   <h4>
+	    Упс(...виникла якась проблема,перевірте ваше з'єднення з інтернетом,або спробойте зайти пізніше.
+	    <br>Або перейдіть на <a href="index.html"> Головну сторінку.</a>
+	   </h4>
+	  </p>
+	 </div>
 	</center>
    </div>
-	      
-   <div>
-    <p>
-	 <center class="">
-	  <div class="text-center">
-	   <h1>Про групу</h1>
-	  </div>
-	 </center>
-	</p>
-   </div>
-   
-   <div class="row about-group">
-	<div  class="col-xs-12">
-	 <p align="justify">
-	 Океан Ельзи багаторазово визнані публікою й критиками як краща рок-група і краща live-група СНД і Східної Європи.
-	 Океан Ельзи - це експресивний, самовідданий концертний драйв, унікальне поєднання справжньої слов'янської мелодійності з
-	 потужною роковою енергетикою.
-	 Платівки групи завжди резонансні й стають гучною подією. Сольні концерти Океан Ельзи, головною умовою яких є живий звук, незмінно викликають великий інтерес.
-	 </p>
-	 <br>
-	</div>
-   </div>
-   
-   <div class="menu"> 
-	 <a href="index.html">
-	  <img src="best-albom.jpg" alt="Сайт гурту Океан Ельзи">
-	</a>
-   </div>
+	   
+  <script>
+   var toMain = confirm("Перейти на Головну сторінку?");
+   if(toMain == true) {
+    document.location.href = "index.html";
+   }
+  </script>	   
   
  </div>
  
+ 
+
   <footer>
     <center>
      © 2019 Океан Ельзи

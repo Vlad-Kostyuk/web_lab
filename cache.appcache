@@ -1,0 +1,41 @@
+CACHE MANIFEST
+# Версия 1.1.0
+
+CACHE:
+
+#html
+/index.html
+/news.html
+/tour_schedule.html
+/fans_appeal_adap.html
+/concert_venue.html
+
+
+#css
+/style_adap.css
+/news.css
+/tour_schedule.css
+/fans_appeal_adap.css
+/concert_venue.css
+/error.css
+
+
+#css-bootstrap
+/css/bootstrap.min.css
+
+#foto
+/best-albom.jpg
+/admin_foto.png
+/concert.png
+/foto_group.png
+/foto_tour.png
+/logo.png
+/404.png
+
+NETWORK:
+https://code.jquery.com/jquery-3.2.1.slim.min.js
+https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js
+https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js
+
+FALLBACK:
+/admin.html /error.html
