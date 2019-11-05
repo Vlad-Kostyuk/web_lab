@@ -7,6 +7,7 @@
       <link rel="stylesheet" href="css/bootstrap.min.css">
    <link rel="stylesheet" href="/style_adap.css" type="text/css"/>
    <link rel="stylesheet" href="/fans_appeal_adap.css" type="text/css"/>
+   <script src="fans_appeal_adap.js"></script>
   </head>
   <body>
 	
@@ -54,7 +55,7 @@
 	<div class="fans-appeal row">
 	  <div class="col-xs-2 col-md-2 col-lg-2 col">
 	  <p class="data-fans-appeal" >
-	   Українка 
+	   Українка Лана
 	   <br>22.09.2018 19:10
 	   </p>
 	   </div>
@@ -66,7 +67,7 @@
 	 </div>
 	
 	
-	<div class="fans-appeal row">
+	<div id="end" class=" fans-appeal row">
 	  <div class="col-xs-2 col-md-2 col-lg-2 col">
 	  <p class="data-fans-appeal" >
 	    Українка Лана
@@ -80,17 +81,19 @@
 	  </div>
 	</div>
 	
+	<div id="showComments"> 
+	</div>
 	
 	<div class="fans-appeal-commit row">
 	 <div class="input-submit col-md-2 col-lg-2 col">
-	   <p><button>Відправити</button></p>
+	   <p><button id="start" onclick="getComment()">Відправити</button></p>
 	 </div>
 	 <div class="form-commit col-md-9 col-lg-9 col">
-	   <p><textarea  cols="50%" rows="5%" placeholder="Ваше повідомлення"></textarea></p>
+	   <p><textarea id="inputComments" cols="50%" rows="5%" placeholder="Ваше повідомлення"></textarea></p>
+	   	 <span id="errorMessage" style="color:red;font-weight:bold"></span>
 	 </div>
 	</div>
 	
-  
     </div>
  
   <footer>
