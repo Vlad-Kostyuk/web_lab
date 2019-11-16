@@ -1,20 +1,37 @@
 var user = getNameUser();
 var pageId = 'fans';
-let a = ["Яблоко", "Апельсин", "Слива"];
 var localUser;
-var userOnline;
 var sizeLocalHost = 0;
 var i = 0;
+
+ 
+   document.addEventListener("DOMContentLoaded",printStartComments);
+ 
+   window.addEventListener('load', function() {
+    function updateOnlineStatus(event) {
+		console.log("start"  + event );
+			if(isOnline()) {
+			 sendDB();
+			 getDB();
+			 localStorage.removeItem(pageId);
+			} 
+	}
+	window.addEventListener('online',  updateOnlineStatus);
+	window.addEventListener('offline', updateOnlineStatus);
+   });
+
 	function isOnline() {    
 		return window.navigator.onLine;
 	}
 
-    function checkOnline() {
-	  if(isOnline() == true) {
-		  userOnline = true;
-	    } else {
-		  userOnline = false;
-	    } 
+	
+	function sendDB() {
+		console.log("send to server");
+		//send to server
+	}
+	
+	function getDB() {
+		console.log("get data from server");
 	}
 
     function saveLocalStorage(text, date) {
@@ -76,9 +93,7 @@ var i = 0;
          scrollText();
 		 clearForm();
 		 console.log(isOnline());
-
-		  if(userOnline == true){
-			saveLocalStorage(text,getDate()); 
+		  if(isOnline() == true){
 		  } else {
 			saveLocalStorage(text,getDate()); 
 		  }
@@ -134,4 +149,4 @@ var i = 0;
 		+ '<div class="text-fans-appeal col-xs-10  col-md-9 col-lg-9 col">' + comment + '</div>' + '</div>';
 	    document.getElementById('showComments').innerHTML  += htmlBlock;
 	}
-    
+	
