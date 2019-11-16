@@ -1,6 +1,5 @@
 var user = getNameUser();
 var pageId = 'fans';
-var localUser;
 var sizeLocalHost = 0;
 var i = 0;
 

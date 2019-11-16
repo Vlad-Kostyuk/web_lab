@@ -15,7 +15,7 @@
 			clearFormTitleNews();
 			scrollTextNews();
 			clearTextNews();
-			alert('Новина додата!');
+			addNews(title, textNews);
 		} 
 		if(title.length > 0 && textNews.length == 0) {
 			showErrorMessageTextNews();
