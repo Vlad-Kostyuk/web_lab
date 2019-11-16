@@ -5,18 +5,18 @@ var i = 0;
  
    document.addEventListener("DOMContentLoaded",printStartNews);
  
-   // window.addEventListener('load', function() {
-    // function updateOnlineStatus(event) {
-		// console.log("start"  + event );
-			// if(isOnline()) {
-			 // sendDB();
-			 // getDB();
-			 // localStorage.removeItem(pageId);
-			// } 
-	// }
-	// window.addEventListener('online',  updateOnlineStatus);
-	// window.addEventListener('offline', updateOnlineStatus);
-   // });
+   window.addEventListener('load', function() {
+    function updateOnlineStatus(event) {
+		console.log("start"  + event );
+			if(isOnline()) {
+			 sendDB();
+			 getDB();
+			 localStorage.removeItem(pageId);
+			} 
+	}
+	window.addEventListener('online',  updateOnlineStatus);
+	window.addEventListener('offline', updateOnlineStatus);
+   });
 
 	function isOnline() {    
 		return window.navigator.onLine;
