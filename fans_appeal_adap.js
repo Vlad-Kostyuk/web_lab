@@ -3,7 +3,7 @@ var pageId = 'fans';
 var sizeLocalHost = 0;
 var i = 0;
 
-   document.addEventListener("DOMContentLoaded",printStartComments);
+   //document.addEventListener("DOMContentLoaded",printStartComments);
     
    window.addEventListener('load', function() {
     function updateOnlineStatus(event) {
