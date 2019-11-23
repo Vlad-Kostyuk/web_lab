@@ -3,14 +3,14 @@ var sizeLocalHost = 0;
 var i = 0;
 
  
-   document.addEventListener("DOMContentLoaded",printStartNews);
+ // document.addEventListener("DOMContentLoaded",printStartNews);
  
    window.addEventListener('load', function() {
     function updateOnlineStatus(event) {
-		console.log("start"  + event );
 			if(isOnline()) {
 			 sendDB();
 			 getDB();
+			 printStartNews();
 			 localStorage.removeItem(pageId);
 			} 
 	}
@@ -43,7 +43,12 @@ var i = 0;
 	}
     
 	function addNews(title, text) {
+		if(isOnline()) {
+			sendDB();
+			getDB();
+		} else {
 			saveLocalStorage(title, text); 
+		}
 	}
 	
 	function getArrayNews() {

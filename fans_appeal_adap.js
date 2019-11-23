@@ -3,15 +3,15 @@ var pageId = 'fans';
 var sizeLocalHost = 0;
 var i = 0;
 
- 
    document.addEventListener("DOMContentLoaded",printStartComments);
- 
+    
    window.addEventListener('load', function() {
     function updateOnlineStatus(event) {
 		console.log("start"  + event );
 			if(isOnline()) {
 			 sendDB();
 			 getDB();
+			 printStartComments();
 			 localStorage.removeItem(pageId);
 			} 
 	}
@@ -93,10 +93,13 @@ var i = 0;
 		 clearForm();
 		 console.log(isOnline());
 		  if(isOnline() == true){
+			  sendDB();
+			  getDB();
+			  printComment(text, getDate(), user);
 		  } else {
 			saveLocalStorage(text,getDate()); 
 		  }
-		  printComment(text, getDate(), user);
+		  //printComment(text, getDate(), user);
 		}
 	}
 
