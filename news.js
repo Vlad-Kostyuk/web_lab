@@ -1,7 +1,7 @@
 var pageId = 'news';
 var sizeLocalHost = 0;
 var i = 0;
-
+var useLocaStorage = false;
  
  // document.addEventListener("DOMContentLoaded",printStartNews);
  
@@ -10,8 +10,14 @@ var i = 0;
 			if(isOnline()) {
 			 sendDB();
 			 getDB();
-			 printStartNews();
-			 localStorage.removeItem(pageId);
+			 if(useLocaStorage) {
+			   printStartNews();
+			   localStorage.removeItem(pageId);
+			 } else {
+				var IndexDb = new FansIndexDb();
+                IndexDb.getNews();
+				IndexDb.deleteNews();
+			 }
 			} 
 	}
 	window.addEventListener('online',  updateOnlineStatus);
@@ -47,7 +53,13 @@ var i = 0;
 			sendDB();
 			getDB();
 		} else {
-			saveLocalStorage(title, text); 
+			//saveLocalStorage(title, text); 
+			  if(useLocaStorage) {
+			    saveLocalStorage(title, text); 
+			  } else {
+				var IndexDb = new FansIndexDb();
+                IndexDb.saveNews(title, text);
+			  }
 		}
 	}
 	

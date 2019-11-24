@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# Версия 1.3.8
+# Версия 1.4.1
 
 CACHE:
 /index.html
@@ -11,6 +11,7 @@ CACHE:
 /fans_appeal_adap_obj.js
 /admin.html
 
+
 /style_adap.css
 /news.css
 /tour_schedule.css
@@ -20,6 +21,7 @@ CACHE:
 
 /admin.js
 /news.js
+/news_obj.js
 
 #css-bootstrap
 /css/bootstrap.min.css
