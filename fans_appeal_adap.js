@@ -2,6 +2,7 @@ var user = getNameUser();
 var pageId = 'fans';
 var sizeLocalHost = 0;
 var i = 0;
+var useLocaStorage = false;
 
    //document.addEventListener("DOMContentLoaded",printStartComments);
     
@@ -11,8 +12,14 @@ var i = 0;
 			if(isOnline()) {
 			 sendDB();
 			 getDB();
-			 printStartComments();
-			 localStorage.removeItem(pageId);
+			 if(useLocaStorage) {
+			   printStartComments();
+			   localStorage.removeItem(pageId);
+			 } else {
+				var IndexDb = new FansIndexDb();
+                IndexDb.getComment();
+				IndexDb.deleteComment();
+			 }
 			} 
 	}
 	window.addEventListener('online',  updateOnlineStatus);
@@ -96,10 +103,14 @@ var i = 0;
 			  sendDB();
 			  getDB();
 			  printComment(text, getDate(), user);
-		  } else {
-			saveLocalStorage(text,getDate()); 
-		  }
-		  //printComment(text, getDate(), user);
+		  } else {	
+			  if(useLocaStorage) {
+			    saveLocalStorage(text, getDate()); 
+			  } else {
+				var IndexDb = new FansIndexDb();
+                IndexDb.saveComment(user, text);
+			  }
+		  } 
 		}
 	}
 
@@ -116,7 +127,6 @@ var i = 0;
 		var hh = date.getHours();
 		var minets = date.getMinutes();
 		date = dd + '.' + mm + '.' + yyyy + ' ' + hh + ':' + minets;
-	    //console.log(date);
      return date;
 	}
 	
