@@ -1,0 +1,15 @@
+{
+  "name": "node-js-sample",
+  "version": "0.2.0",
+  "description": "A sample Node.js app using Express 4",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo my lab",
+    "start": "node server.js"
+  },
+  "author": "Vlad Kostyuk",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
