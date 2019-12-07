@@ -9,6 +9,7 @@ exports.getNews = function (post_body, storage) {
 		});
 		storage = storage.concat(newsArray);
 	}
+	console.log(storage);
 
   return storage;
 }

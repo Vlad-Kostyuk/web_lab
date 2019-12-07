@@ -9,6 +9,7 @@ exports.getFans = function (post_body, storage) {
 		});
 		storage = storage.concat(commentArray);
 	}
-
+	console.log(storage);
+	
   return storage;
 }

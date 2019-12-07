@@ -113,15 +113,18 @@ var useLocaStorage = false;
 
     function sendCommentToServer(text, commentDate, user) {
 		
-		var params = {
+		var comment = {
 			nick: user,
 			comment: text, 
 			commentDate: commentDate
 		};
+		var params = [];
+		
+		params.push(comment);
 		
 		var http = new XMLHttpRequest();
 		http.open("POST", "http://localhost:8000/fans", true);
-		http.setRequestHeader("Content-type", "application/json");
+		http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=utf-8');
 
 		http.onreadystatechange = function() {
 		  if (http.readyState == 4 && http.status == 200) {
@@ -129,8 +132,8 @@ var useLocaStorage = false;
 		  }
 		}
 
-		http.send(params);
-		
+		http.send(JSON.stringify(params));
+
 		console.log("send data to server");
 	}
 

@@ -27,8 +27,9 @@ http.createServer(function(request, response) {
       response.writeHead(404, {'Content-Type': 'text/html'});
       return response.end("404 Not Found");
     }
-	
-    if (request.method === 'POST') {
+
+	console.log('test ' + request.method);
+	console.log('test23 ' + filename);
 		if (filename == '/news') {
 			request.on('data', chunk => {
 				post_body = chunk.toString();
@@ -43,7 +44,7 @@ http.createServer(function(request, response) {
 				response.end(JSON.stringify(storageComments));
 			});
 		}
-	}  
+		
  }).listen(8000);
  
 console.log('Server running at http://127.0.0.1:8000/');
