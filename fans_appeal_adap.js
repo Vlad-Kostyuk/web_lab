@@ -39,9 +39,11 @@ var useLocaStorage = false;
 	function getDataServer() {
 		
 		var http = new XMLHttpRequest();
-		///var params = "text=test";
+		var params = [];
+		params.push('');
 		http.open("POST", "http://localhost:8000/fans", true);
-		http.setRequestHeader("Content-type", "application/json");
+		//http.setRequestHeader("Content-type", "application/json");
+		http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=utf-8');
 
 		http.onreadystatechange = function() {
 		  if (http.readyState == 4 && http.status == 200) {
@@ -50,7 +52,7 @@ var useLocaStorage = false;
 		  }
 		}
 
-		http.send();
+		http.send(JSON.stringify(params));
 		
 		console.log("get data from server");
 	}

@@ -5,7 +5,9 @@ exports.getFans = function (post_body, storage) {
 		var json_body = JSON.parse(post_body);
 		
 	    json_body.forEach(function(item, i, arr) {
-			commentArray.push({ nick: item.nick, textNews: item.comment, commentDate: item.commentDate });
+			if ((item.nick) && (item.comment)) {
+				commentArray.push({ nick: item.nick, comment: item.comment, commentDate: item.commentDate });
+			}
 		});
 		storage = storage.concat(commentArray);
 	}

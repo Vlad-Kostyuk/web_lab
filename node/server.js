@@ -40,6 +40,7 @@ http.createServer(function(request, response) {
 		if (filename == '/fans') {
 			request.on('data', chunk => {
 				post_body = chunk.toString();
+					console.log('test77 ' + post_body);
 				storageComments = fans.getFans(post_body, storageComments);
 				response.end(JSON.stringify(storageComments));
 			});
