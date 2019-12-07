@@ -11,7 +11,7 @@ var useLocaStorage = false;
 		console.log("start"  + event );
 			if(isOnline()) {
 			 sendDB();
-			 getDB();
+			 getDataServer();
 			 if(useLocaStorage) {
 			   printStartComments();
 			   localStorage.removeItem(pageId);
@@ -36,7 +36,22 @@ var useLocaStorage = false;
 		//send to server
 	}
 	
-	function getDB() {
+	function getDataServer() {
+		
+		var http = new XMLHttpRequest();
+		///var params = "text=test";
+		http.open("POST", "http://localhost:8000/fans", true);
+		http.setRequestHeader("Content-type", "application/json");
+
+		http.onreadystatechange = function() {
+		  if (http.readyState == 4 && http.status == 200) {
+			console.log(http.responseText);
+			printStartComments(JSON.parse(http.responseText));
+		  }
+		}
+
+		http.send();
+		
 		console.log("get data from server");
 	}
 
@@ -80,9 +95,15 @@ var useLocaStorage = false;
 		return commentArray;
 	}
 	
-	function printStartComments() {
+	function printStartComments(serverComments = false) {
 		let commentArray = [];
-		commentArray = getArrayComments();	
+		if (!serverComments) {
+			commentArray = getArrayComments();
+		}
+		else {
+			commentArray = serverComments;
+		}
+
 		if (commentArray.length > 0) {
 			commentArray.forEach(function(item, i, arr) {
 			    printComment(item.comment, item.commentDate, item.nick);
@@ -101,7 +122,7 @@ var useLocaStorage = false;
 		 console.log(isOnline());
 		  if(isOnline() == true){
 			  sendDB();
-			  getDB();
+			  getDataServer();
 			  printComment(text, getDate(), user);
 		  } else {	
 			  if(useLocaStorage) {

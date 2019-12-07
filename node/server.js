@@ -6,7 +6,11 @@ var fans = require('./fans');
  http.createServer(function(request, response) {
   var q = url.parse(request.url, true);
    var filename =  q.pathname;
-   
+    response.setHeader('Access-Control-Allow-Origin', 'http://localhost:8301');
+    response.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    response.setHeader('Access-Control-Allow-Credentials', true);
+	
    if (filename != '/fans' && filename != '/news') {
       response.writeHead(404, {'Content-Type': 'text/html'});
       return response.end("404 Not Found");
