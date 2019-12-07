@@ -1,7 +1,14 @@
-exports.getNews = function () {
-  let newsArray = [];
-	newsArray[0] = {id: 1, textNews: 'fromNodeJs',title: 'Node'};
-	newsArray[1] = {id: 2, textNews: 'fromNodeJs2',title: 'Node!'};
-	newsArray[2] = {id: 3, textNews: 'fromNodeJs3',title: 'Node!!!!!!'};
-  return  newsArray;
+exports.getNews = function (post_body, storage) {
+  var newsArray = [];
+  
+	if (post_body.length > 0) {
+		var json_body = JSON.parse(post_body);
+		
+	    json_body.forEach(function(item, i, arr) {
+			newsArray.push({ id: item.id, textNews: item.textNews, title: item.title });
+		});
+		storage = storage.concat(newsArray);
+	}
+
+  return storage;
 }

@@ -111,6 +111,29 @@ var useLocaStorage = false;
 		}
 	}
 
+    function sendCommentToServer(text, commentDate, user) {
+		
+		var params = {
+			nick: user,
+			comment: text, 
+			commentDate: commentDate
+		};
+		
+		var http = new XMLHttpRequest();
+		http.open("POST", "http://localhost:8000/fans", true);
+		http.setRequestHeader("Content-type", "application/json");
+
+		http.onreadystatechange = function() {
+		  if (http.readyState == 4 && http.status == 200) {
+			console.log(http.responseText);
+		  }
+		}
+
+		http.send(params);
+		
+		console.log("send data to server");
+	}
+
 	function addComment() {
 		var text = document.getElementById("inputComments").value;
 		console.log(isOnline());
@@ -121,8 +144,9 @@ var useLocaStorage = false;
 		 clearForm();
 		 console.log(isOnline());
 		  if(isOnline() == true){
-			  sendDB();
-			  getDataServer();
+			  //sendDB();
+			 // getDataServer();
+			  sendCommentToServer(text, getDate(), user);
 			  printComment(text, getDate(), user);
 		  } else {	
 			  if(useLocaStorage) {

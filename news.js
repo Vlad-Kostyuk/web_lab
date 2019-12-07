@@ -65,8 +65,8 @@ var useLocaStorage = false;
     
 	function addNews(title, text) {
 		if(isOnline()) {
-			sendDB();
-			getDataServer();
+			//sendDB();
+			//getDataServer();
 		} else {
 			//saveLocalStorage(title, text); 
 			  if(useLocaStorage) {
