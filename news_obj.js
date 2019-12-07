@@ -64,7 +64,6 @@ function FansIndexDb() {
                       if (arrayNews.length > 0) {
 							rowName = 'row-news-' + rowId;
 							printRowNews(rowName);
-							//arrayNews.forEach(function(item, i, arr) {
 							for(var i = 0; i < arrayNews.length;i++) {
 							 item = arrayNews[i];
 							 printNews(rowName, item.title, item.textNews);
