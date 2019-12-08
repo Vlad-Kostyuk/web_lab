@@ -28,15 +28,12 @@ http.createServer(function(request, response) {
 	console.log('url page ' + filename);
 	
 		if (filename == '/get-news') {
-			storageNews = news.getNews(storageNews);
-			response.end(JSON.stringify(storageNews));
+			 news.getNews(response);
 		}
 		else if (filename == '/get-fans') {
 			fans.getFans(response);
 		}
 		else if (filename == '/add-fans') {
-			//addMongoFans();
-			//getMongoFans();
 			request.on('data', chunk => {
 				post_body = chunk.toString();
 				result = fans.addFans(post_body);
@@ -46,8 +43,8 @@ http.createServer(function(request, response) {
 		else if (filename == '/add-news') {
 			request.on('data', chunk => {
 				post_body = chunk.toString();
-				storageNews = news.addNews(post_body, storageNews);
-			    response.end(JSON.stringify(storageNews));
+				result = news.addNews(post_body);
+			    response.end(JSON.stringify(result));
 			});
 		}
 		
@@ -56,13 +53,5 @@ http.createServer(function(request, response) {
 console.log('Server running at http://127.0.0.1:8000/');
 
 
-
-function getMongoNews() {
-	
-}
-
-function addMongoNews() {
-	
-}
 
 

@@ -1,24 +1,63 @@
-exports.getNews = function (storage) {
+exports.getNews = function (response) {
+    let newsArray = [];  
 
-	console.log(storage);
+	const MongoClient = require("mongodb").MongoClient;
+	const urlMongo = "mongodb://localhost:27017/";
+	const mongoClient = new MongoClient(urlMongo, { useNewUrlParser: true });
+	const mongoDbName = "lab_11";
+	
+	mongoClient.connect(function(err, client){
+      
+    const db = client.db(mongoDbName );
+    const collection = db.collection("news");
 
-  return storage;
+	collection.find().toArray(function(err, results){
+      
+        //console.log(results);
+		if(results.length > 0) {
+
+			results.forEach(function(item, i, arr) {
+				newsArray.push({ textNews: item.textNews, title: item.title });
+			});
+			
+		}
+        client.close();
+		console.log(newsArray);
+		response.end(JSON.stringify(newsArray));
+    });
+ });
 }
 
-exports.addNews = function (post_body, storage) {
-  var newsArray = [];
+exports.addNews = function (post_body) {
   
-	if (post_body.length > 0) {
-		var json_body = JSON.parse(post_body);
+	const MongoClient = require("mongodb").MongoClient;
+	const urlMongo = "mongodb://localhost:27017/";
+	const mongoClient = new MongoClient(urlMongo, { useNewUrlParser: true });
+	const mongoDbName = "lab_11";
+	
+	mongoClient.connect(function(err, client) {
+	    const db = client.db(mongoDbName );
+		const collection = db.collection("news");
 		
-	    json_body.forEach(function(item, i, arr) {
-			if ((item.textNews) && (item.title)) {
-				newsArray.push({ textNews: item.textNews, title: item.title });
-			}
-		});
-		storage = storage.concat(newsArray);
-	}
-	console.log(storage);
+		if (post_body.length > 0) {
+			var json_body = JSON.parse(post_body);
+			
+			json_body.forEach(function(item, i, arr) {
+				if ((item.textNews) && (item.title)) {
 
-  return storage;
+				    let news = { textNews: item.textNews, title: item.title };
+					collection.insertOne(news, function(err, result){
+						  
+						if(err){ 
+							return console.log(err);
+						}
+					   // console.log(results);
+						client.close();
+					});
+				}
+			});
+		}
+	});
+	
+  return true;
 }

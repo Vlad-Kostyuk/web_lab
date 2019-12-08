@@ -31,8 +31,7 @@ exports.getFans = function (response) {
 }
 
 exports.addFans = function (post_body) {	
-	let commentArray = [];
-	var storage= [];
+
 	const MongoClient = require("mongodb").MongoClient;
 	const urlMongo = "mongodb://localhost:27017/";
 	const mongoClient = new MongoClient(urlMongo, { useNewUrlParser: true });
