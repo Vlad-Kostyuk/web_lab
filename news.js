@@ -35,7 +35,8 @@ var useLocaStorage = false;
 	}
 	
 	function getDataServer() {
-		if(!isOnline()) { 
+		
+		if(!isOnline() && (!loadDataServer)) { 
 			return;
 		}
 		
@@ -56,6 +57,8 @@ var useLocaStorage = false;
 		http.send();
 		
 		console.log("get data from server");
+		
+		loadDataServer = true;
 	}
 
     function saveLocalStorage(title, text) {

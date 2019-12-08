@@ -1,4 +1,3 @@
-
 function FansIndexDb() {
 	this.databaseName = 'VladDatabase';
 	this.version = 1;
@@ -32,6 +31,7 @@ function FansIndexDb() {
 		request.onupgradeneeded = function(event) {
 			db = event.target.result;
 			storeComments = db.createObjectStore(storeName, {keyPath: 'id', autoIncrement: true});
+
 		}
 		request.onsuccess = function(event) {
 

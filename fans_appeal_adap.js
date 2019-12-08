@@ -3,8 +3,9 @@ var pageId = 'fans';
 var sizeLocalHost = 0;
 var i = 0;
 var useLocaStorage = false;
+let loadDataServer = false;
 
-   //document.addEventListener("DOMContentLoaded",printStartComments);
+	document.addEventListener("DOMContentLoaded", getDataServer());
     
    window.addEventListener('load', function() {
     function updateOnlineStatus(event) {
@@ -38,7 +39,7 @@ var useLocaStorage = false;
 	
 	function getDataServer() {
 		
-		if(!isOnline()) { 
+		if (!isOnline() && (!loadDataServer)) { 
 			return;
 		}
 		
@@ -59,6 +60,8 @@ var useLocaStorage = false;
 		http.send();
 		
 		console.log("get data from server");
+		
+		loadDataServer = true;
 	}
 
     function saveLocalStorage(text, date) {
