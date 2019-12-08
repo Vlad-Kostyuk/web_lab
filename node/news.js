@@ -5,7 +5,9 @@ exports.getNews = function (post_body, storage) {
 		var json_body = JSON.parse(post_body);
 		
 	    json_body.forEach(function(item, i, arr) {
-			newsArray.push({ id: item.id, textNews: item.textNews, title: item.title });
+			if ((item.textNews) && (item.title)) {
+				newsArray.push({ textNews: item.textNews, title: item.title });
+			}
 		});
 		storage = storage.concat(newsArray);
 	}

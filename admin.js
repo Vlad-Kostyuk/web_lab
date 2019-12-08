@@ -1,5 +1,5 @@
 
-	function main() {
+	function newContent() {
 		getText();
 	}
 	

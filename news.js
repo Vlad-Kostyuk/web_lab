@@ -37,9 +37,10 @@ var useLocaStorage = false;
 	function getDataServer() {
 				
 		var http = new XMLHttpRequest();
-		///var params = "text=test";
+		var params = [];
+		params.push('');
 		http.open("POST", "http://localhost:8000/news", true);
-		http.setRequestHeader("Content-type", "application/json");
+		http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=utf-8');
 
 		http.onreadystatechange = function() {
 		  if (http.readyState == 4 && http.status == 200) {
@@ -48,7 +49,7 @@ var useLocaStorage = false;
 		  }
 		}
 
-		http.send();
+		http.send(JSON.stringify(params));
 		
 		console.log("get data from server");
 	}
@@ -62,11 +63,37 @@ var useLocaStorage = false;
 			newsArray.push(news);
 			localStorage.setItem(pageId, JSON.stringify(newsArray));
 	}
+
+    function sendNewsToServer(title, text) {
+		
+		var news = {
+			textNews: text,
+			title: title
+		};
+		var params = [];
+		
+		params.push(news);
+		
+		var http = new XMLHttpRequest();
+		http.open("POST", "http://localhost:8000/news", true);
+		http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=utf-8');
+
+		http.onreadystatechange = function() {
+		  if (http.readyState == 4 && http.status == 200) {
+			console.log(http.responseText);
+		  }
+		}
+
+		http.send(JSON.stringify(params));
+
+		console.log("send data to server");
+	}
     
 	function addNews(title, text) {
 		if(isOnline()) {
 			//sendDB();
 			//getDataServer();
+			sendNewsToServer(title, text); 
 		} else {
 			//saveLocalStorage(title, text); 
 			  if(useLocaStorage) {
