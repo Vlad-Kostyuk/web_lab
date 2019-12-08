@@ -7,11 +7,6 @@ let storageNews = [];
 let storageComments = [];
 var post_body;
 
-// const express = require('express')
-// const app = express()
-// var bodyParser = require('body-parser');
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
 
 http.createServer(function(request, response) {
   var q = url.parse(request.url, true);
@@ -37,14 +32,15 @@ http.createServer(function(request, response) {
 			response.end(JSON.stringify(storageNews));
 		}
 		else if (filename == '/get-fans') {
-			storageComments = fans.getFans(storageComments);
-			response.end(JSON.stringify(storageComments));
+			fans.getFans(response);
 		}
 		else if (filename == '/add-fans') {
+			//addMongoFans();
+			//getMongoFans();
 			request.on('data', chunk => {
 				post_body = chunk.toString();
-				storageComments = fans.addFans(post_body, storageComments);
-				response.end(JSON.stringify(storageComments));
+				result = fans.addFans(post_body);
+				response.end(JSON.stringify(result));
 			});
 		}
 		else if (filename == '/add-news') {
@@ -61,6 +57,12 @@ console.log('Server running at http://127.0.0.1:8000/');
 
 
 
+function getMongoNews() {
+	
+}
 
+function addMongoNews() {
+	
+}
 
 
