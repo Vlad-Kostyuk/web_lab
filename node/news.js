@@ -1,4 +1,11 @@
-exports.getNews = function (post_body, storage) {
+exports.getNews = function (storage) {
+
+	console.log(storage);
+
+  return storage;
+}
+
+exports.addNews = function (post_body, storage) {
   var newsArray = [];
   
 	if (post_body.length > 0) {

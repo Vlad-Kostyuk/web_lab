@@ -2,8 +2,7 @@ var http = require("http");
 var url = require('url');
 var news = require('./news');
 var fans = require('./fans');
-var commentsRequest = [];
-var newsRequest = [];
+
 let storageNews = [];
 let storageComments = [];
 var post_body;
@@ -23,25 +22,36 @@ http.createServer(function(request, response) {
     response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     response.setHeader('Access-Control-Allow-Credentials', true);
 	
-	if (filename != '/fans' && filename != '/news') {
+	if (filename != '/get-fans' && filename != '/add-fans'&& filename != '/add-news' && filename != '/get-news') {
       response.writeHead(404, {'Content-Type': 'text/html'});
       return response.end("404 Not Found");
     }
 
-	console.log('test ' + request.method);
-	console.log('test23 ' + filename);
-		if (filename == '/news') {
+	response.writeHead(200, {'Content-Type': 'text/html'});
+	
+	console.log('method ' + request.method);
+	console.log('url page ' + filename);
+	
+		if (filename == '/get-news') {
+			storageNews = news.getNews(storageNews);
+			response.end(JSON.stringify(storageNews));
+		}
+		else if (filename == '/get-fans') {
+			storageComments = fans.getFans(storageComments);
+			response.end(JSON.stringify(storageComments));
+		}
+		else if (filename == '/add-fans') {
 			request.on('data', chunk => {
 				post_body = chunk.toString();
-				storageNews = news.getNews(post_body, storageNews);
-			    response.end(JSON.stringify(storageNews));
+				storageComments = fans.addFans(post_body, storageComments);
+				response.end(JSON.stringify(storageComments));
 			});
 		}
-		if (filename == '/fans') {
+		else if (filename == '/add-news') {
 			request.on('data', chunk => {
 				post_body = chunk.toString();
-				storageComments = fans.getFans(post_body, storageComments);
-				response.end(JSON.stringify(storageComments));
+				storageNews = news.addNews(post_body, storageNews);
+			    response.end(JSON.stringify(storageNews));
 			});
 		}
 		

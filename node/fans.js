@@ -1,4 +1,11 @@
-exports.getFans = function (post_body, storage) {
+exports.getFans = function (storage) {
+
+	console.log(storage);
+	
+  return storage;
+}
+
+exports.addFans = function (post_body, storage) {	
 	let commentArray = [];
 
 	if (post_body.length > 0) {

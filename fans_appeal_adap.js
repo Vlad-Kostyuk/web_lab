@@ -38,11 +38,14 @@ var useLocaStorage = false;
 	
 	function getDataServer() {
 		
+		if(!isOnline()) { 
+			return;
+		}
+		
 		var http = new XMLHttpRequest();
-		var params = [];
-		params.push('');
-		http.open("POST", "http://localhost:8000/fans", true);
-		//http.setRequestHeader("Content-type", "application/json");
+		// var params = [];
+		// params.push('');
+		http.open("POST", "http://localhost:8000/get-fans", true);
 		http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=utf-8');
 
 		http.onreadystatechange = function() {
@@ -52,7 +55,8 @@ var useLocaStorage = false;
 		  }
 		}
 
-		http.send(JSON.stringify(params));
+		//http.send(JSON.stringify(params));
+		http.send();
 		
 		console.log("get data from server");
 	}
@@ -125,7 +129,7 @@ var useLocaStorage = false;
 		params.push(comment);
 		
 		var http = new XMLHttpRequest();
-		http.open("POST", "http://localhost:8000/fans", true);
+		http.open("POST", "http://localhost:8000/add-fans", true);
 		http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=utf-8');
 
 		http.onreadystatechange = function() {
