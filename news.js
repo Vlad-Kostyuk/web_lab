@@ -1,7 +1,7 @@
 var pageId = 'news';
 var sizeLocalHost = 0;
 var i = 0;
-var useLocaStorage = false;
+var useLocaStorage = true;
  
  document.addEventListener("DOMContentLoaded", getDataServer());
  
@@ -30,13 +30,20 @@ var useLocaStorage = false;
 
 	
 	function sendDB() {
-		console.log("send to server");
-		//send to server
+		newsArray = getArrayNews();
+		console.log(newsArray);
+		if (newsArray.length > 0) {
+			newsArray.forEach(function(item, i, arr) {
+			   sendNewsToServer(item.title, item.textNews);
+			});
+		}
+		
+		console.log("send database to server");
 	}
 	
 	function getDataServer() {
 		
-		if(!isOnline() && (!loadDataServer)) { 
+		if(!isOnline()) { 
 			return;
 		}
 		
@@ -57,8 +64,6 @@ var useLocaStorage = false;
 		http.send();
 		
 		console.log("get data from server");
-		
-		loadDataServer = true;
 	}
 
     function saveLocalStorage(title, text) {

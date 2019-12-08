@@ -2,7 +2,7 @@ var user = getNameUser();
 var pageId = 'fans';
 var sizeLocalHost = 0;
 var i = 0;
-var useLocaStorage = false;
+var useLocaStorage = true;
 let loadDataServer = false;
 
 	document.addEventListener("DOMContentLoaded", getDataServer());
@@ -33,8 +33,16 @@ let loadDataServer = false;
 
 	
 	function sendDB() {
-		console.log("send to server");
-		//send to server
+		commentArray = getArrayComments();
+			 
+		console.log(commentArray);
+		if (commentArray.length > 0) {
+			commentArray.forEach(function(item, i, arr) {
+			    sendCommentToServer(item.comment, item.commentDate, item.nick);
+			});
+		}
+		
+		console.log("send database to server");
 	}
 	
 	function getDataServer() {
